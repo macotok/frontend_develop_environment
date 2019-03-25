@@ -3,6 +3,7 @@
 ## 対応しているもの
 
 - webpackでbundle
+- `npm scripts`でタスクランナー対応
 - jQuery(一応)
 - ES6対応(@babel)
 - sass対応
