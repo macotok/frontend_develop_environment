@@ -11,4 +11,6 @@
 - productionモードでcssファイル圧縮
 - productionモードでjsファイル圧縮
 - imageファイル圧縮
+- webfont対応(woff、eot等)
+- media対応(mp4、webm等)
 
