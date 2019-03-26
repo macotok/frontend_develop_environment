@@ -12,8 +12,10 @@
     - media対応(mp4、webm等)
 - npm scriptsでタスクランナー
 - jQuery
-- pugでHTMLコーディング
 - font「NotoSansJP」設定
+- pugでHTMLコーディング
+    - _include
+    - index.pug
 - cssファイル(smacss設計)
     - base
     - function
