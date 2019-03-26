@@ -1,18 +1,26 @@
 # frontend_develop_environment
 
-## 対応しているもの
+## develop list
 
 - webpackでbundle
-- `npm scripts`でタスクランナー対応
-- jQuery(一応)
-- ES6対応(@babel)
-- sass対応
-- postCSSでautoprefixer対応
+    - ES6(@babel)
+    - sass
+    - postCSSでautoprefixer
+    - productionモードでcss/jsファイル圧縮
+    - imageファイル圧縮
+    - webfont対応(woff、eot等)
+    - media対応(mp4、webm等)
+- npm scriptsでタスクランナー
+- jQuery
 - pugでHTMLコーディング
-- productionモードでcssファイル圧縮
-- productionモードでjsファイル圧縮
-- imageファイル圧縮
-- webfont対応(woff、eot等)
-- media対応(mp4、webm等)
 - font「NotoSansJP」設定
+- cssファイル(smacss設計)
+    - base
+    - function
+    - layout
+    - mixin
+    - module
+    - responsive
+    - state
+    - variable
 
