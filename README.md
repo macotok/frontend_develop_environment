@@ -14,4 +14,5 @@
 - imageファイル圧縮
 - webfont対応(woff、eot等)
 - media対応(mp4、webm等)
+- font「NotoSansJP」設定
 
