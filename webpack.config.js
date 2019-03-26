@@ -20,7 +20,7 @@ module.exports = [
       publicPath: '/',
     },
     devServer: {
-      contentBase: './dist/',
+      contentBase: './dist/html/',
       watchContentBase: true,
       port: 3000,
       open: true,
