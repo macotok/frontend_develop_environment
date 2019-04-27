@@ -21,7 +21,7 @@ $ yarn build
 - webpackでbundle
     - ES6(@babel)
     - Sass
-    - PostCSSでautoprefixer
+    - autoprefixerを自動生成
     - productionモードでcss/jsファイル圧縮
     - imageファイル圧縮
     - WebFont対応(woff、eot等)
@@ -48,7 +48,7 @@ $ yarn build
     - ESLint
     - StyleLint
     
-## 参考サイト
+## reference
 
 - [stylelint.config.js](https://gist.github.com/buchiya4th/f4ca1be2ab98ee5a8098fa68a93e752c)
     
