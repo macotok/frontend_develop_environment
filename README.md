@@ -1,5 +1,14 @@
 # frontend_develop_environment
 
+## command
+
+``` terminal
+$ yarn // npm install
+$ yarn start // start dev server and watch pug/css/js
+$ yarn dev // mode development
+$ yarn build // mode production
+```
+
 ## develop list
 
 - webpackでbundle
