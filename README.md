@@ -3,10 +3,17 @@
 ## command
 
 ``` terminal
-$ yarn // npm install
-$ yarn start // start dev server and watch pug/css/js
-$ yarn dev // mode development
-$ yarn build // mode production
+// npm install
+$ yarn
+
+// start dev server and watch pug/css/js
+$ yarn start
+
+// mode development
+$ yarn dev
+
+// mode production
+$ yarn build
 ```
 
 ## develop list
