@@ -28,4 +28,12 @@
     - state
     - variable
     - animation
+- Lint
+    - ESLint
+    - StyleLint
+    
+## 参考サイト
+
+- [stylelint.config.js](https://gist.github.com/buchiya4th/f4ca1be2ab98ee5a8098fa68a93e752c)
+    
 
