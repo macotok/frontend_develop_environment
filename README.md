@@ -10,6 +10,7 @@
     - imageファイル圧縮
     - WebFont対応(woff、eot等)
     - media対応(mp4、webm等)
+    - jQueryに依存したライブラリに対応
 - npm scriptsでタスクランナー
 - jQuery
 - font「NotoSansJP」設定
@@ -25,4 +26,5 @@
     - responsive
     - state
     - variable
+    - animation
 
