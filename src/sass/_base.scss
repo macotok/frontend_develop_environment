@@ -37,7 +37,7 @@ time, mark, audio, video {
 body {
   line-height: 1.6;
   font-size: 14px;
-  color: #333;
+  color: $black-color-01;
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'メイリオ', sans-serif;
 }
 article,aside,details,figcaption,figure,
@@ -61,19 +61,6 @@ a {
   vertical-align: baseline;
   background: transparent;
 }
-/* change colours to suit your needs */
-ins {
-  background-color: #ff9;
-  color: #000;
-  text-decoration: none;
-}
-/* change colours to suit your needs */
-mark {
-  background-color: #ff9;
-  color: #000;
-  font-style: italic;
-  font-weight: bold;
-}
 del {
   text-decoration: line-through;
 }
@@ -85,12 +72,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/* change border colour to suit your needs */
 hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid $black-color-01;
   margin: 1em 0;
   padding: 0;
 }
