@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"webpack-dev-server\" \"yarn run watch:pug\" --watch",
     "dev": "webpack --mode development",
-    "build": "concurrently \"webpack\" \"yarn run pug\" --mode production",
+    "build": "concurrently \"rm -rf dist\" \"webpack\" \"yarn run pug\" --mode production",
     "pug": "pug src/pug/ --hierarchy -o dist/html -P",
     "watch:pug": "pug src/pug/ --hierarchy -o dist/html -P -w"
   },
@@ -16,7 +16,7 @@
   "dependencies": {
     "jquery": "^3.3.1",
     "pug": "^2.0.3",
-    "pug-cli": "^1.0.0-alpha6",
+    "pug-cli": "github:pugjs/pug-cli#master",
     "pug-loader": "^2.4.0"
   },
   "devDependencies": {

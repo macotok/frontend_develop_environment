@@ -17,6 +17,7 @@
 - pugでHTMLコーディング
     - _include
     - index.pug
+    - buildすると`_include`を削除
 - cssファイル(smacss設計)
     - base
     - function
