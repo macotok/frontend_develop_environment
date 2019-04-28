@@ -70,12 +70,15 @@ module.exports = [
           ],
         },
         {
-          test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-          use: [
-            {
-              loader: 'url-loader',
+          test: /\.(woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: './webfonts',
+              publicPath: '../webfonts',
             },
-          ],
+          }],
         },
         {
           test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -83,8 +86,8 @@ module.exports = [
             {
               loader: 'file-loader',
               options: {
-                name: '[name].[ext]'
-              }
+                name: '[name].[ext]',
+              },
             },
           ],
         },
@@ -112,8 +115,8 @@ module.exports = [
           to: path.resolve(__dirname, 'dist/img/'),
         },
         {
-          from: path.resolve(__dirname, 'src/font/'),
-          to: path.resolve(__dirname, 'dist/font/'),
+          from: path.resolve(__dirname, 'src/webfonts/'),
+          to: path.resolve(__dirname, 'dist/webfonts/'),
         },
       ]),
       new MiniCssExtractPlugin({

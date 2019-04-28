@@ -24,12 +24,13 @@ $ yarn build
     - autoprefixerを自動生成
     - productionモードでcss/jsファイル圧縮
     - imageファイル圧縮
-    - WebFont対応(woff、eot等)
-    - media対応(mp4、webm等)
+    - WebFont対応(woff/eot/ttf/svg)
+    - media対応(mp4/webm/ogg)
     - jQueryに依存したライブラリに対応
 - npm scriptsでタスクランナー
 - jQuery
 - font「NotoSansJP」設定
+- fontawesomeのcssをnode_modulesで管理
 - pugでHTMLコーディング
     - _include
     - index.pug
@@ -44,6 +45,7 @@ $ yarn build
     - state
     - variable
     - animation
+    - font
 - Lint
     - ESLint
     - StyleLint
