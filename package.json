@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"webpack-dev-server\" \"yarn run watch:pug\" --watch",
+    "start": "concurrently \"webpack-dev-server\" \"yarn run watch:pug\"",
     "dev": "webpack --mode development",
     "build": "concurrently \"rm -rf dist\" \"webpack\" \"yarn run pug\" --mode production",
     "pug": "pug src/pug/ --hierarchy -o dist/html -P",
@@ -15,9 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.3.1",
-    "pug": "^2.0.3",
-    "pug-cli": "github:pugjs/pug-cli#master",
-    "pug-loader": "^2.4.0"
+    "yui": "^3.18.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -37,6 +35,9 @@
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
+    "pug": "^2.0.3",
+    "pug-cli": "github:pugjs/pug-cli#master",
+    "pug-loader": "^2.4.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "stylelint": "^10.0.1",
