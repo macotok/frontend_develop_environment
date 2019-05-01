@@ -70,6 +70,14 @@ module.exports = [
           ],
         },
         {
+          test: /\.(jpe?g|png|gif|svg)(\?[a-z0-9=.]+)?$/,
+          use: [
+            {
+              loader: 'url-loader',
+            },
+          ],
+        },
+        {
           test: /\.(woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
           use: [{
             loader: 'file-loader',
@@ -111,12 +119,16 @@ module.exports = [
       }),
       new CopyWebpackPlugin([
         {
-          from: path.resolve(__dirname, 'src/img/'),
-          to: path.resolve(__dirname, 'dist/img/'),
+          from: path.resolve(__dirname, 'src/images/'),
+          to: path.resolve(__dirname, 'dist/images/'),
         },
         {
           from: path.resolve(__dirname, 'src/webfonts/'),
           to: path.resolve(__dirname, 'dist/webfonts/'),
+        },
+        {
+          from: path.resolve(__dirname, 'src/media/'),
+          to: path.resolve(__dirname, 'dist/media/'),
         },
       ]),
       new MiniCssExtractPlugin({
