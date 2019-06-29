@@ -1,5 +1,8 @@
-const Autoprefixer = require('autoprefixer');
+const AutoPrefixer = require('autoprefixer');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const globule = require('globule');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -7,7 +10,7 @@ const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
-module.exports = {
+const app = {
   entry: {
     app: [
       './src/js/app.js',
@@ -27,6 +30,19 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.pug$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'pug-loader',
+            options: {
+              pretty: true,
+              root: path.resolve(__dirname, 'src/pug'),
+            },
+          },
+        ],
+      },
       {
         test: /\.js?$/,
         exclude: /node_modules/,
@@ -49,11 +65,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               plugins: [
-                Autoprefixer(
-                  {
-                    browsers: ['last 2 versions', 'Android >= 4'],
-                  },
-                ),
+                AutoPrefixer(),
               ],
             },
           },
@@ -67,22 +79,18 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)(\?[a-z0-9=.]+)?$/,
-        use: [
-          {
-            loader: 'url-loader',
-          },
-        ],
+        loader: 'url-loader',
       },
       {
-        test: /\.(woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: './webfonts',
-            publicPath: '../webfonts',
+        test: /\.(eot|woff|woff2|ttf|svg)(\?\S*)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            },
           },
-        }],
+        ],
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -108,18 +116,19 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
+    new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, 'src/images/'),
-        to: path.resolve(__dirname, 'dist/images/'),
+        from: path.resolve(__dirname, 'src/assets/images/'),
+        to: path.resolve(__dirname, 'dist/assets/images/'),
       },
       {
-        from: path.resolve(__dirname, 'src/webfonts/'),
-        to: path.resolve(__dirname, 'dist/webfonts/'),
+        from: path.resolve(__dirname, 'src/assets/webfonts/'),
+        to: path.resolve(__dirname, 'dist/assets/webfonts/'),
       },
       {
-        from: path.resolve(__dirname, 'src/media/'),
-        to: path.resolve(__dirname, 'dist/media/'),
+        from: path.resolve(__dirname, 'src/assets/media/'),
+        to: path.resolve(__dirname, 'dist/assets/media/'),
       },
     ]),
     new ImageminPlugin({
@@ -138,3 +147,27 @@ module.exports = {
     }),
   ],
 };
+
+// pugファイルをglobuleで探す
+const pugFiles = globule.find(
+  './src/pug/**/*.pug', {
+    ignore: [
+      './src/pug/**/_*/*.pug',
+    ],
+  },
+);
+
+// 探してきたpugファイルをhtmlに変換してpublicのhtmlに移動
+pugFiles.forEach((pugFile) => {
+  const fileName = pugFile.replace('./src/pug/', 'html/').replace('.pug', '.html');
+  app.plugins.push(
+    // HTMLファイル出力
+    new HtmlWebpackPlugin({
+      inject: false, // 自動でjsとcssファイルの読み込みを書かない
+      filename: `${fileName}`,
+      template: pugFile,
+    }),
+  );
+});
+
+module.exports = app;
