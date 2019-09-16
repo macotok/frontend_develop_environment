@@ -49,6 +49,10 @@ const app = {
         loader: 'babel-loader',
       },
       {
+        test: /\.ts$/,
+        use: 'ts-loader',
+      },
+      {
         test: /\.scss$/,
         use: [
           {
@@ -112,7 +116,7 @@ const app = {
     ],
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.ts'],
   },
   devtool: 'source-map',
   plugins: [
