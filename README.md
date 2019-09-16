@@ -20,6 +20,7 @@ $ yarn build
 
 - webpackでbundle
     - ES6(@babel/polyfill(async/await対応))
+    - TypeScript
     - Sass
     - autoprefixerを自動生成
     - productionモードでcss/jsファイル圧縮
